@@ -20,7 +20,7 @@ export function tryGetValidMarketplaceConfig( path: string = getConfigPath() ): 
     const cfg = {} as MarketplaceConfig;
 
     const json = JSON.parse( readFileSync( path, { encoding: "utf-8" } ) );
-
+    
     if( !isObject( json ) )
     throw new Error("invalid JSON for markeptlace configuration");
 
@@ -66,6 +66,7 @@ export function tryGetValidMarketplaceConfig( path: string = getConfigPath() ): 
     throw new Error("invalid 'signer.skeyPath' for markeptlace configuration");
 
     cfg.signer.skey = cli.utils.readPrivateKey( json.signer.skeyPath );
+
     cfg.signer.vkey = isValidPath( json.signer.vkeyPath ) ?
         cli.utils.readPublicKey( json.signer.vkeyPath ) :
         cfg.signer.skey.derivePublicKey();
@@ -80,16 +81,14 @@ export function tryGetValidMarketplaceConfig( path: string = getConfigPath() ): 
                 cfg.ownerAddress.network,
                 PaymentCredentials.pubKey( cfg.signer.vkey.hash )
             )
-        );
-    
-
+        );   
     if(!(
         isObject( json.paymentAsset ) &&
         typeof json.paymentAsset.policy === "string" &&
         typeof json.paymentAsset.tokenNameHex === "string"
     ))
     throw new Error("invalid 'paymentAsset' for markeptlace configuration");
-
+    
     cfg.paymentAsset = {} as any;
 
     cfg.paymentAsset.policy = json.paymentAsset.policy === "" ? "" :
@@ -115,4 +114,5 @@ export function tryGetValidMarketplaceConfig( path: string = getConfigPath() ): 
         undefined;
 
     return cfg;
+    
 }

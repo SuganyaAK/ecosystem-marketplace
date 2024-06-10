@@ -5,7 +5,7 @@
         "preprod",
         "preview"
     ],
-    "network": "preprod",
+    "network": "preview",
 
     "envFolderPath_comment": [
         "folder that will be used by the various sub commands to generate files"
@@ -26,7 +26,7 @@
     "signer": {
         "skeyPath": "./secret_testnet/payment.skey",
         "vkeyPath": null,
-        "address": null 
+        "address": null
     },
 
     "ownerAddress_comment": [
@@ -34,7 +34,7 @@
         " - will be able to update the fee that the marketplace takes",
         " - will receive the fee"
     ],
-    "ownerAddress": "your_address_here",
+    "ownerAddress": "addr_test1qrxg3q38zy2jnglk8g9623r0v07uur6lzu4ua0u3r9v0lpvvls2rjx6fmdgrdedlxn65hydc365m9dj477da2ppkatmqj3ppnt",
 
     "paymentAsset": {
 
@@ -90,5 +90,5 @@
         "if specified blockfrost will be used for queries and tx submission",
         "otherwhise leave anything that is not a string will default to koios"
     ],
-    "blockfrostProjectId": null
+    "blockfrostProjectId": null 
 }

@@ -28,6 +28,7 @@
     "@harmoniclabs/uint8array-utils": "^1.0.0"
   },
   "devDependencies": {
+    "@anastasia-labs/lucid-cardano-fork": "^0.10.7",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-typescript": "^7.21.5",
     "@types/blake2": "^4.0.1",
